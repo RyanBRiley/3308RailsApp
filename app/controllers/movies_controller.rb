@@ -8,6 +8,8 @@ class MoviesController < ApplicationController
 
   def index
     @movies = params[:sort] == "title" || params[:sort] == "release_date" ? Movie.order(params[:sort]) : Movie.all
+    @is_active_title = params[:sort] == "title" ? "hilite" : ""
+    @is_active_date = params[:sort] == "release_date" ? "hilite" : ""
   end
 
   def new
